@@ -1,57 +1,29 @@
-🚗 Vehicle License Plate Recognition GUI - Nhóm 03
-Ứng dụng giao diện đồ họa bằng Tkinter để nhận diện biển số xe từ hình ảnh sử dụng mô hình YOLOv8 để phát hiện biển số, sau đó sử dụng SVM để nhận diện ký tự trên biển số.
-📌 Mô tả bài toán
-Mục tiêu: Xây dựng hệ thống nhận diện biển số xe từ hình ảnh đầu vào (ảnh chụp xe) thông qua giao diện người dùng.
+## 🧩 Mô tả bài toán
 
-Hệ thống cần thực hiện các chức năng:
+Dự án xây dựng một **ứng dụng nhận diện biển số xe tự động từ ảnh tĩnh** dựa trên mô hình học sâu kết hợp học máy truyền thống, tích hợp trên giao diện người dùng Tkinter.
 
-Cho phép người dùng chọn ảnh đầu vào.
+---
 
-Dùng YOLOv8 để phát hiện vị trí biển số xe trong ảnh.
+### 🚗 Bối cảnh & Động lực
 
-Cắt và xử lý vùng ảnh chứa biển số.
+Việc nhận dạng biển số xe một cách tự động ngày càng quan trọng trong các ứng dụng:
+- 📍 Quản lý xe ra/vào bãi đỗ
+- 🚧 Giám sát giao thông đô thị
+- 🏫 Kiểm soát phương tiện tại cổng trường, nhà máy, chung cư
 
-Dùng SVM (Support Vector Machine) để nhận dạng từng ký tự trên biển số.
+Tuy nhiên, phương pháp thủ công thường chậm, dễ sai và không đáp ứng được nhu cầu thời gian thực. Vì vậy, cần có một hệ thống:
+- 🤖 Tự động phát hiện biển số
+- 🔤 Nhận dạng ký tự chính xác
+- 🖥 Hiển thị thông tin trực quan, dễ dùng
 
-Hiển thị biển số nhận diện được lên giao diện.
-🛠 Công nghệ sử dụng
-Python 3.x
+---
 
-Tkinter (Giao diện GUI)
+### 🔁 Quy trình hoạt động
 
-OpenCV (Xử lý ảnh)
-
-PIL (Xử lý ảnh trong Tkinter)
-
-Ultralytics YOLOv8 (Phát hiện biển số xe)
-
-SVM (Nhận dạng ký tự, huấn luyện với tập dữ liệu ký tự biển số)
-
-joblib (Lưu/trích xuất mô hình học máy)
-🖼 Giao diện người dùng
-Giao diện gồm:
-
-Khung hiển thị ảnh gốc và ảnh biển số đã cắt.
-
-Nút "Chọn ảnh" để tải ảnh từ máy tính.
-
-Nút "Tìm biển số xe" để bắt đầu quá trình phát hiện và nhận diện.
-
-Nhãn hiển thị ngày giờ và kết quả biển số xe.
-⚙️ Cấu trúc hoạt động
-Người dùng chọn ảnh bằng nút "Chọn ảnh".
-
-Ảnh được hiển thị và ghi lại thời gian thêm.
-
-Nhấn nút "Tìm biển số xe" để:
-
-YOLOv8 phát hiện biển số trong ảnh.
-
-Cắt vùng biển số và hiển thị.
-
-Dùng SVM nhận dạng từng ký tự.
-
-Hiển thị biển số nhận diện được lên giao diện.
-![image](https://github.com/user-attachments/assets/9117f46b-8d04-4733-95bb-dc581d629f8f)
-![image](https://github.com/user-attachments/assets/e21f67f8-cc40-423a-99bb-257cf31e41fe)
-
+```mermaid
+graph LR
+A[Người dùng chọn ảnh xe] --> B[YOLOv8 phát hiện biển số]
+B --> C[Cắt & xử lý vùng biển số]
+C --> D[Tách ký tự]
+D --> E[SVM nhận dạng ký tự]
+E --> F[Hiển thị kết quả trên giao diện]
